@@ -112,7 +112,7 @@ export default function Home() {
 
 				<div className="w-full flex flex-col justify-center items-start gap-3">
 					<h1 className="text-2xl text-slate-100 font-semibold">
-						Hi I'm Faizan Karamat
+						Hi I&apos;m Faizan Karamat
 					</h1>
 					<p className="text-pretty text-lg font-light text-slate-200">
 						I&apos;m a self-taught Full Stack Developer with a focus on the MERN
