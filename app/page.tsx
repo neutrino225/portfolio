@@ -37,11 +37,11 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className="w-full flex flex-col justify-start items-start ml-10">
-					<h1 className="text-3xl md:text-5xl text-slate-200 font-bold">
+				<div className="w-full flex flex-col justify-start items-start ml-5 md:ml-10">
+					<h1 className="text-4xl md:text-5xl text-slate-200 font-bold">
 						Faizan Karamat
 					</h1>
-					<h2 className="text-2xl md:text-2xl text-slate-200 font-light">
+					<h2 className="text-3xl md:text-2xl text-slate-200 font-light">
 						FullStack Developer
 					</h2>
 				</div>
@@ -78,7 +78,7 @@ export default function Home() {
 			<section
 				id="aboutme"
 				className="mx-auto w-full md:w-3/4  flex flex-col justify-start items-start gap-5">
-				<h1 className="text-lg uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
+				<h1 className="text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
 					About Me <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
 				</h1>
 
@@ -86,7 +86,7 @@ export default function Home() {
 					<h1 className="text-2xl text-slate-100 font-semibold">
 						Hi I&apos;m Faizan Karamat
 					</h1>
-					<p className="text-justify md:text-pretty text-lg font-light text-slate-200">
+					<p className="text-pretty text-lg md:text-xl font-medium text-slate-200">
 						I&apos;m a self-taught Full Stack Developer with a focus on the MERN
 						stack (that&apos;s fancy talk for MongoDB, Express, React, and
 						Node.js). I&apos;ve been at it for over 2 years now, and I&apos;m
@@ -104,7 +104,7 @@ export default function Home() {
 			<section
 				id="work"
 				className="mx-auto w-full md:w-3/4  flex flex-col justify-start items-start gap-3">
-				<h1 className="text-lg uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
+				<h1 className="text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
 					Projects <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
 				</h1>
 
@@ -115,7 +115,7 @@ export default function Home() {
 			<section
 				id="skills"
 				className="mx-auto w-full md:w-3/4  flex flex-col justify-start items-start gap-5">
-				<h1 className="text-lg uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
+				<h1 className="text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
 					Tools i use <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
 				</h1>
 				<Tools />
@@ -124,10 +124,24 @@ export default function Home() {
 			{/* contact section */}
 			<section
 				id="contact"
-				className="mx-auto w-full md:w-3/4  flex flex-col justify-start items-start gap-3">
-				<h1 className="text-lg uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
+				className="mx-auto w-full md:w-3/4 flex flex-col justify-start items-start gap-3">
+				<h1 className="text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
 					Contact <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
 				</h1>
+
+				<div className="w-full flex max-md:flex-col justify-start items-start gap-10">
+					<div className="w-full flex flex-col justify-start items-start gap-4">
+						<p className="text-lg text-slate-200">
+							Got a question, proposal, project, or want to work together on
+							something?
+						</p>
+						<a
+							href="mailto:fznkrmt22503@gmail.com"
+							className="inline-block bg-blue-500/50 text-white rounded px-3 py-2 hover:bg-blue-600/50 text-center font-bold">
+							Send me an email
+						</a>
+					</div>
+				</div>
 			</section>
 		</main>
 	);

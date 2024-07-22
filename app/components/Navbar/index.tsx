@@ -8,7 +8,7 @@ const Navbar = () => {
 			<div className="flex items-center gap-10">
 				<ul className="flex gap-5 md:gap-10">
 					<li>
-						<a href="#home" className="text-slate-200 font-medium">
+						<a href="#home" className="text-slate-200 font-medium ">
 							Home
 						</a>
 					</li>
