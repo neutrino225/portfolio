@@ -1,4 +1,5 @@
 /** @format */
+import Project from "./components/Project";
 import Tools from "./components/Tools";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
 					{/* Color Bars */}
 					<div className="w-full flex gap-1">
 						<span className="w-24 h-3 md:h-4 rounded-3xl bg-blue-300/70"></span>
-						<span className="w-40 md:w-96 h-3 md:h-4 rounded-3xl bg-red-300/70"></span>
+						<span className="w-28 md:w-96 h-3 md:h-4 rounded-3xl bg-red-300/70"></span>
 						<span className="w-20 h-3 md:h-4 rounded-3xl bg-green-300/70"></span>
 						<span className="w-5 h-3 md:h-4 rounded-3xl bg-purple-300/70"></span>
 					</div>
@@ -32,7 +33,7 @@ export default function Home() {
 
 					<div className="w-full flex gap-1">
 						<span className="w-10 h-3 md:h-4 rounded-full bg-transparent"></span>
-						<span className="w-64 md:w-96 h-3 md:h-4 rounded-full bg-red-300/70"></span>
+						<span className="w-56 md:w-96 h-3 md:h-4 rounded-full bg-red-300/70"></span>
 						<span className="w-10 h-3 md:h-4 rounded-full bg-purple-300/70"></span>
 					</div>
 				</div>
@@ -56,7 +57,7 @@ export default function Home() {
 					</div>
 					<div className="w-full flex gap-1">
 						<span className="w-10 h-3 md:h-4 rounded-full bg-transparent"></span>
-						<span className="w-64 md:w-96 h-3 md:h-4 rounded-full bg-red-300/70"></span>
+						<span className="w-56 md:w-96 h-3 md:h-4 rounded-full bg-red-300/70"></span>
 						<span className="w-10 h-3 md:h-4 rounded-full bg-purple-300/70"></span>
 					</div>
 					<div className="w-full flex gap-1">
@@ -108,7 +109,27 @@ export default function Home() {
 					Projects <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
 				</h1>
 
-				<div className="w-full grid grid-cols-4 gap-5"></div>
+				<div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
+					<Project
+						title="DNS Client"
+						description="This powerful application parses domain names into A, AAAA, and CNAME
+				records, providing you with essential IP addresses and aliases."
+						github="https://github.com/neutrino225/dns-client"
+					/>
+
+					<Project
+						title="Forth Interpreter"
+						description="This was a hobby project. I created an interpreter for a small subset of Forth (a stack VM based language)"
+						github="https://github.com/neutrino225/Forth-Interpreter"
+					/>
+
+					<Project
+						title="Pixel Arrays"
+						description="This is a personal hobby website where I showcase the images I've captured."
+						github="https://github.com/neutrino225/pixelarrays"
+						demo="https://pixelarrays.vercel.app/"
+					/>
+				</div>
 			</section>
 
 			{/* skills section */}

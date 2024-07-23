@@ -5,8 +5,8 @@ import React from "react";
 const Footer = () => {
 	return (
 		<footer className="bg-zinc-900 backdrop-blur-lg backdrop-filter mx-auto w-full md:rounded-2xl py-6">
-			<div className="mx-auto w-full md:w-3/4 flex flex-col md:flex-row items-center justify-between gap-5 px-10 md:px-24">
-				<p className="text-base md:text-lg text-gray-200">
+			<div className="mx-auto w-full md:w-3/4 flex flex-col-reverse md:flex-row items-center justify-between gap-5 px-10 md:px-24">
+				<p className="text-xs md:text-lg text-gray-200">
 					&copy; 2024 Faizan Karamat. All rights reserved.
 				</p>
 
