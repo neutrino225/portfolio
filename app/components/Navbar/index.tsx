@@ -1,10 +1,26 @@
 /** @format */
 
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
+
+const variants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			duration: 0.5,
+		},
+	},
+};
 
 const Navbar = () => {
 	return (
-		<nav className="w-full fixed top-0 left-1/2 p-5 transform -translate-x-1/2 h-16 bg-transparent backdrop-blur-lg flex items-center justify-center px-10 md:px-24 z-50">
+		<motion.nav
+			initial="hidden"
+			animate="visible"
+			variants={variants}
+			className="w-full fixed top-0 left-1/2 p-5 transform -translate-x-1/2 h-16 bg-transparent backdrop-blur-lg flex items-center justify-center px-10 md:px-24 z-50">
 			<div className="flex items-center gap-10">
 				<ul className="flex gap-5 md:gap-10">
 					<li>
@@ -29,7 +45,7 @@ const Navbar = () => {
 					</li>
 				</ul>
 			</div>
-		</nav>
+		</motion.nav>
 	);
 };
 

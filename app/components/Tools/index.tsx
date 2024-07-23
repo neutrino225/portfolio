@@ -2,13 +2,12 @@
 import React from "react";
 
 const Tools = () => {
-	// Tools I use section
 	return (
-		<div className="w-full h-full flex flex-col justify-start items-center gap-20 px-2">
+		<div className="w-full h-full flex flex-col justify-start items-start gap-20 px-2">
 			{/* frontend */}
-			<div className="w-full h-full flex flex-col justify-center items-center gap-10">
+			<div className="w-full h-full flex flex-col justify-center items-start gap-10">
 				<h1 className="text-3xl font-bold">Frontend</h1>
-				<div className="w-full h-full flex flex-row justify-center items-center gap-10 flex-wrap">
+				<div className="w-full h-full flex flex-row justify-start items-center gap-10 flex-wrap">
 					<div className="text-white hover:text-blue-600">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -93,9 +92,9 @@ const Tools = () => {
 			</div>
 
 			{/* backend */}
-			<div className="w-full h-full flex flex-col justify-center items-center gap-10">
+			<div className="w-full h-full flex flex-col justify-start items-start gap-10">
 				<h1 className="text-3xl font-bold">Backend</h1>
-				<div className="w-full h-full flex flex-row justify-center gap-10 flex-wrap">
+				<div className="w-full h-full flex flex-row justify-start gap-10 flex-wrap">
 					<div className="text-white hover:text-green-400">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -139,9 +138,9 @@ const Tools = () => {
 			</div>
 
 			{/* others */}
-			<div className="w-full h-full flex flex-col justify-center items-center gap-10">
+			<div className="w-full h-full flex flex-col justify-center items-start gap-10">
 				<h1 className="text-3xl font-bold">Others</h1>
-				<div className="w-full h-full flex flex-row justify-center gap-10 flex-wrap">
+				<div className="w-full h-full flex flex-row justify-start gap-10 flex-wrap">
 					<div className="text-white hover:text-orange-400">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
