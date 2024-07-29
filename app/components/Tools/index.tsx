@@ -6,7 +6,7 @@ const Tools = () => {
 		<div className="w-full h-full flex flex-col justify-start items-start gap-20 px-2">
 			{/* frontend */}
 			<div className="w-full h-full flex flex-col justify-center items-start gap-10">
-				<h1 className="text-3xl font-bold">Frontend</h1>
+				<h1 className="text-xl md:text-2xl font-bold">Frontend</h1>
 				<div className="w-full h-full flex flex-row justify-start items-center gap-10 flex-wrap">
 					<div className="text-white hover:text-blue-600">
 						<svg
@@ -93,7 +93,7 @@ const Tools = () => {
 
 			{/* backend */}
 			<div className="w-full h-full flex flex-col justify-start items-start gap-10">
-				<h1 className="text-3xl font-bold">Backend</h1>
+				<h1 className="text-xl md:text-2xl font-bold">Backend</h1>
 				<div className="w-full h-full flex flex-row justify-start gap-10 flex-wrap">
 					<div className="text-white hover:text-green-400">
 						<svg
@@ -139,7 +139,7 @@ const Tools = () => {
 
 			{/* others */}
 			<div className="w-full h-full flex flex-col justify-center items-start gap-10">
-				<h1 className="text-3xl font-bold">Others</h1>
+				<h1 className="text-xl md:text-2xl font-bold">Others</h1>
 				<div className="w-full h-full flex flex-row justify-start gap-10 flex-wrap">
 					<div className="text-white hover:text-orange-400">
 						<svg

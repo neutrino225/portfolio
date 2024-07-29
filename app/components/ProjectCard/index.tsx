@@ -29,7 +29,9 @@ const ProjectCard = ({ title, description, github, demo }: ProjectProps) => {
 			}}
 			className="w-full bg-card rounded-3xl p-6 flex flex-col justify-between items-start gap-5">
 			<div className="w-full flex justify-between items-center">
-				<h1 className="text-2xl text-slate-200 font-semibold">{title}</h1>
+				<h1 className="text-xl md:text-2xl text-slate-200 font-semibold">
+					{title}
+				</h1>
 				<div className="flex justify-center items-center gap-3">
 					<div className="relative group">
 						<a
@@ -76,7 +78,7 @@ const ProjectCard = ({ title, description, github, demo }: ProjectProps) => {
 					)}
 				</div>
 			</div>
-			<p className="text-slate-200">{description}</p>
+			<p className="text-slate-200 text-base md:text-lg">{description}</p>
 		</motion.div>
 	);
 };

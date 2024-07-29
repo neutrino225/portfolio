@@ -8,7 +8,7 @@ const Projects = () => {
 		<section
 			id="work"
 			className="mx-auto w-full md:w-3/4  flex flex-col justify-center items-center gap-5">
-			<h1 className="text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
+			<h1 className="text-lg md:text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
 				Projects <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
 			</h1>
 

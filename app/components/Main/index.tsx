@@ -62,14 +62,14 @@ const Main = () => {
 			</motion.div>
 
 			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ ease: "easeOut", duration: 2 }}
+				initial={{ opacity: 0, scale: 0.8 }}
+				animate={{ opacity: 1, scale: 1 }}
+				transition={{ ease: [0.61, 1, 0.88, 1], duration: 1 }}
 				className="w-full flex flex-col justify-start items-start ml-5 md:ml-10">
-				<h1 className="text-4xl md:text-5xl text-slate-200 font-bold">
+				<h1 className="text-3xl md:text-5xl text-slate-200 font-bold">
 					Faizan Karamat
 				</h1>
-				<h2 className="text-3xl md:text-2xl text-slate-200 font-light">
+				<h2 className="text-xl md:text-2xl text-slate-200 font-light">
 					FullStack Developer
 				</h2>
 			</motion.div>

@@ -3,13 +3,16 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { easeInOut } from "framer-motion/dom";
 
 const variants = {
-	hidden: { opacity: 0 },
+	hidden: { opacity: 0, y: 200 },
 	visible: {
 		opacity: 1,
+		y: 0,
 		transition: {
-			duration: 0.5,
+			duration: 1,
+			ease: [0.5, 1, 0.89, 1],
 		},
 	},
 };
@@ -22,15 +25,15 @@ const About = () => {
 			variants={variants}
 			id="aboutme"
 			className="mx-auto w-full md:w-3/4  flex flex-col justify-start items-center gap-5">
-			<h1 className="text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
+			<h1 className="text-lg md:text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
 				About Me <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
 			</h1>
 
 			<div className="w-full flex flex-col justify-center items-start gap-3">
-				<h1 className="text-2xl text-slate-100 font-semibold">
+				<h1 className="text-xl md:text-2xl text-slate-100 font-semibold">
 					Hi I&apos;m Faizan Karamat
 				</h1>
-				<p className="text-pretty text-lg md:text-xl font-medium text-slate-200">
+				<p className="text-pretty text-base md:text-xl font-medium text-slate-200">
 					I&apos;m a self-taught Full Stack Developer with a focus on the MERN
 					stack (that&apos;s fancy talk for MongoDB, Express, React, and
 					Node.js). I&apos;ve been at it for over 2 years now, and I&apos;m
