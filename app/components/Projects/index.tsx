@@ -7,10 +7,12 @@ const Projects = () => {
 	return (
 		<section
 			id="work"
-			className="mx-auto w-full md:w-3/4  flex flex-col justify-center items-center gap-5">
-			<h1 className="text-lg md:text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
-				Projects <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
-			</h1>
+			className="mx-auto w-full md:w-3/4  flex flex-col justify-center items-center gap-7">
+			<div className="flex gap-2 items-center">
+				<h1 className="text-base md:text-lg uppercase text-blue-400 font-bold">
+					[ Projects ]
+				</h1>
+			</div>
 
 			<div className="w-full grid grid-cols-1 md:grid-cols-1 gap-5">
 				<ProjectCard

@@ -20,13 +20,13 @@ const Contact = () => {
 	return (
 		<section
 			id="contact"
-			className="mx-auto w-full md:w-3/4 flex flex-col justify-start items-center gap-5">
-			<h1 className="text-lg md:text-xl uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
-				Contact <span className="w-4 h-1 bg-blue-400 rounded-2xl"></span>
+			className="mx-auto w-full md:w-3/4 flex flex-col justify-start items-center gap-7">
+			<h1 className="text-base md:text-lg uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
+				[ Contact ]
 			</h1>
 
 			<div className="w-full flex max-md:flex-col justify-start items-start gap-10">
-				<div className="w-full flex flex-col justify-start items-start gap-4">
+				<div className="w-full flex flex-col justify-start items-center gap-4">
 					<p className="text-base md:text-lg text-slate-200">
 						Got a question, proposal, project, or want to work together on
 						something?
