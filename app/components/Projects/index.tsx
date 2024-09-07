@@ -14,7 +14,20 @@ const Projects = () => {
 				</h1>
 			</div>
 
-			<div className="w-full grid grid-cols-1 md:grid-cols-1 gap-5">
+			<div className="w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5">
+				<ProjectCard
+					title="Context-Aware PDF Question Answering"
+					description="RAG system using LangChain, Chroma, and Gemini Flash for PDF-based Q&A."
+					github="https://github.com/neutrino225/RAG-System"
+				/>
+
+				<ProjectCard
+					title="Pixel Arrays"
+					description="This is a personal hobby website where I showcase the images I've captured."
+					github="https://github.com/neutrino225/pixelarrays"
+					demo="https://pixelarrays.vercel.app/"
+				/>
+
 				<ProjectCard
 					title="DNS Client"
 					description="This powerful application parses domain names into A, AAAA, and CNAME
@@ -26,13 +39,6 @@ const Projects = () => {
 					title="Forth Interpreter"
 					description="This was a hobby project. I created an interpreter for a small subset of Forth (a stack VM based language)"
 					github="https://github.com/neutrino225/Forth-Interpreter"
-				/>
-
-				<ProjectCard
-					title="Pixel Arrays"
-					description="This is a personal hobby website where I showcase the images I've captured."
-					github="https://github.com/neutrino225/pixelarrays"
-					demo="https://pixelarrays.vercel.app/"
 				/>
 			</div>
 		</section>
