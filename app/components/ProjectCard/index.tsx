@@ -27,7 +27,7 @@ const ProjectCard = ({ title, description, github, demo }: ProjectProps) => {
 				scale: scale,
 				opacity: scrollYProgress,
 			}}
-			className="w-full bg-card rounded-3xl p-6 flex flex-col justify-between items-start gap-5">
+			className="w-full bg-card rounded-3xl p-6 flex flex-col justify-start items-start gap-5">
 			<div className="w-full flex justify-between items-center">
 				<h1 className="text-xl md:text-2xl text-slate-200 font-semibold">
 					{title}
