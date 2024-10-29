@@ -108,7 +108,7 @@ const ProjectCard = ({
 
 			{isModalOpen && (
 				<motion.div
-					className="fixed inset-0 flex items-center justify-center z-50"
+					className="fixed inset-0 flex items-center justify-center z-50 p-2"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}>
@@ -143,7 +143,7 @@ const ProjectCard = ({
 									{imagePaths.map((image, index) => (
 										<motion.div
 											key={index}
-											className="rounded-xl cursor-pointer transition-transform duration-300"
+											className="md:rounded-xl cursor-pointer transition-transform duration-300"
 											whileHover={{ scale: 1.05 }}
 											onClick={() => setCurrentImage(index)}>
 											<Image
@@ -152,7 +152,8 @@ const ProjectCard = ({
 												layout="fixed"
 												width={200}
 												height={200}
-												className="rounded-xl shadow-md"
+												sizes="(max-width: 640px) 400px, 200px"
+												className="md:rounded-xl shadow-md"
 											/>
 										</motion.div>
 									))}
