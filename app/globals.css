@@ -3,20 +3,21 @@
 @tailwind utilities;
 
 html {
-	scroll-padding-top: 6rem;
+	scroll-padding-top: 5rem;
 }
 
 body {
-	background: linear-gradient(135deg, #0b0b0b 0%, #111 100%);
+	background-color: #0b0b0b;
 	color: #fff;
 	scroll-behavior: smooth;
-	font-family: "Inter", sans-serif;
 }
 
 body {
-	--sb-track-color: #121212;
-	--sb-thumb-color: #444;
-	--sb-size: 8px;
+	--sb-track-color: #1f1f1f;
+	--sb-thumb-color: #605f65;
+	--sb-size: 10px;
+
+	--sb-modal-size: 5px;
 }
 
 body::-webkit-scrollbar {
@@ -25,17 +26,34 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-track {
 	background: var(--sb-track-color);
-	border-radius: 10px;
+	border-radius: 1px;
 }
 
 body::-webkit-scrollbar-thumb {
 	background: var(--sb-thumb-color);
-	border-radius: 10px;
-	transition: background 0.3s ease-in-out;
+	border-radius: 1px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-	background: #666;
+	background: #888;
+}
+
+.scroller::-webkit-scrollbar {
+	width: var(--sb-modal-size);
+}
+
+.scroller::-webkit-scrollbar-track {
+	background: var(--sb-track-color);
+	border-radius: 1px;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+	background: var(--sb-thumb-color);
+	border-radius: 1px;
+}
+
+.scroller::-webkit-scrollbar-thumb:hover {
+	background: #888;
 }
 
 ::selection {

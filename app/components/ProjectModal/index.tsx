@@ -176,7 +176,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 					</svg>
 				</button>
 
-				<div className="p-6 scroller overflow-y-auto max-h-[90vh]">
+				<div className="p-6 scroller overflow-y-auto max-h-[80vh]">
 					{/* Top Cards Grid */}
 					<div className="mt-6 grid md:grid-cols-2 gap-6 mb-8">
 						{/* Left Card */}
@@ -302,7 +302,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 							</div>
 
 							{/* Thumbnail Strip */}
-							<div className="flex gap-4 mt-4 pb-4 overflow-x-auto">
+							<div className="flex gap-4 mt-6 p-4 overflow-x-auto scroller">
 								{project.imagePaths.map((image, index) => (
 									<motion.div
 										key={index}
