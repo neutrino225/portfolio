@@ -1,81 +1,58 @@
 /** @format */
-
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
-const variants = {
-	hidden: { opacity: 0, y: "-100%" },
-	visible: {
-		opacity: 1,
-		y: "0%",
-		transition: {
-			duration: 0.7,
-		},
-	},
-};
+const navItems = [
+	{ name: "Home", href: "#home" },
+	{ name: "About", href: "#aboutme" },
+	{ name: "Work", href: "#work" },
+	{ name: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
-	const [lastScrollTop, setLastScrollTop] = useState(0);
-	const [navVisible, setNavVisible] = useState(true);
+	const [isScrolled, setIsScrolled] = useState(false);
+	const { scrollY } = useScroll();
 
-	useEffect(() => {
-		const handleScroll = () => {
-			const currentScrollTop = window.pageYOffset;
-			if (currentScrollTop > lastScrollTop) {
-				// Scroll down
-				setNavVisible(false);
-			} else {
-				// Scroll up
-				setNavVisible(true);
-			}
-			setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, [lastScrollTop]);
+	useMotionValueEvent(scrollY, "change", (latest) => {
+		setIsScrolled(latest > 50);
+	});
 
 	return (
 		<motion.nav
-			initial="hidden"
-			animate={navVisible ? "visible" : "hidden"}
-			variants={variants}
-			className="w-full fixed inset-0 p-5 transform -translate-x-1/2 h-16 bg-transparent backdrop-blur-lg flex items-center justify-center px-10 md:px-24 z-50">
-			<div className="flex items-center gap-10">
-				<ul className="flex gap-5 md:gap-10">
-					<li>
-						<a
-							href="#home"
-							className="text-slate-200 text-base md:text-lg font-medium">
-							Home
-						</a>
-					</li>
-					<li>
-						<a
-							href="#aboutme"
-							className="text-slate-200 text-base md:text-lg font-medium">
-							About
-						</a>
-					</li>
-					<li>
-						<a
-							href="#work"
-							className="text-slate-200 text-base md:text-lg font-medium">
-							Work
-						</a>
-					</li>
-					<li>
-						<a
-							href="#contact"
-							className="text-slate-200 text-base md:text-lg font-medium">
-							Contact
-						</a>
-					</li>
-				</ul>
+			initial={{ y: -100, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ duration: 0.5, ease: "easeInOut" }}
+			className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+				isScrolled ? "bg-gray-900/20 backdrop-blur-lg" : "bg-transparent"
+			}`}>
+			<div className="container mx-auto px-8 py-6">
+				<div className="flex justify-center md:justify-center">
+					<ul className="flex flex-wrap justify-center items-center gap-5 md:gap-10">
+						{navItems.map((item, index) => (
+							<motion.li
+								key={item.name}
+								initial={{ y: -20, opacity: 0 }}
+								animate={{ y: 0, opacity: 1 }}
+								transition={{ delay: index * 0.1 }}
+								className="relative">
+								<a
+									href={item.href}
+									className="relative px-3 md:px-4 py-2.5 text-sm md:text-base font-medium text-gray-300 hover:text-cyan-200 transition-colors">
+									{item.name}
+								</a>
+							</motion.li>
+						))}
+					</ul>
+				</div>
 			</div>
+
+			{/* Scrolling Indicator */}
+			<motion.div
+				className="h-[3px] bg-gradient-to-r from-blue-400 to-cyan-300"
+				initial={{ scaleX: 0 }}
+				style={{ scaleX: useScroll().scrollYProgress }}
+			/>
 		</motion.nav>
 	);
 };

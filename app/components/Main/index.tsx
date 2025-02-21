@@ -1,4 +1,3 @@
-/** @format */
 "use client";
 import React from "react";
 
@@ -69,9 +68,15 @@ const Main = () => {
 				<h1 className="text-3xl md:text-5xl text-slate-200 font-bold">
 					Faizan Karamat
 				</h1>
-				<h2 className="text-xl md:text-2xl text-slate-200 font-light">
-					FullStack Developer
-				</h2>
+				<div className="flex flex-row md:items-center gap-1">
+					<h2 className="text-base md:text-xl text-slate-300 font-light">
+						Full Stack Developer
+					</h2>
+					<span className="hidden md:inline text-slate-400 mx-2">|</span>
+					<h2 className="text-base md:text-xl text-slate-300 font-light">
+						AI/ML Engineer
+					</h2>
+				</div>
 			</motion.div>
 
 			{/* Color Bars */}

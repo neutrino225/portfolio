@@ -2,6 +2,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiCopy, FiLinkedin, FiGithub, FiMail } from "react-icons/fi";
 
 const Contact = () => {
 	const [copied, setCopied] = useState<boolean>(false);
@@ -17,52 +18,82 @@ const Contact = () => {
 		}
 	};
 
+	const buttonVariants = {
+		hover: { scale: 1.05 },
+		tap: { scale: 0.95 },
+	};
+
 	return (
 		<section
 			id="contact"
-			className="mx-auto w-full md:w-3/4 flex flex-col justify-center items-center gap-7">
-			<h1 className="text-base md:text-lg uppercase text-blue-400 font-bold flex justify-center items-center gap-2">
-				[ Contact ]
-			</h1>
+			className="mx-auto w-full max-w-4xl pb-12 px-4 md:px-6 flex flex-col items-center gap-10">
+			<motion.h1
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				className="text-xl md:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+				[ Get In Touch ]
+			</motion.h1>
 
-			<div className="w-full flex max-md:flex-col justify-start items-start gap-10">
-				<div className="w-full flex flex-col justify-start items-start gap-4">
-					<p className="text-base md:text-lg text-slate-200">
-						Got a question, proposal, project, or want to work together on
-						something?
-					</p>
-					<div className="w-full flex gap-7 justify-start items-center max-md:justify-center max-md:items-center flex-wrap">
-						<motion.button
-							onClick={handleCopy}
-							className="flex flex-row justify-start items-center group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-rose-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4  origin-left hover:decoration-2 hover:text-rose-300 relative bg-neutral-800 h-16  w-full md:w-96 border text-left p-3 text-gray-50 text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-violet-500 before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-rose-300 after:right-8 after:top-3 after:rounded-full after:blur-lg">
-							{!copied ? "Copy email" : "Copied"}
-						</motion.button>
+			<motion.div
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1 }}
+				viewport={{ once: true }}
+				className="w-full max-w-3xl text-center">
+				<p className="text-gray-400 text-base md:text-lg mb-6 leading-relaxed">
+					Whether you have a project idea, need consultation, or just want to
+					connect - I&apos;m always open to new opportunities and conversations.
+				</p>
 
-						<motion.a
-							href="https://www.linkedin.com/in/faizan-karamat/"
-							target="_blank"
-							className="flex flex-row justify-start items-center group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-rose-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4  origin-left hover:decoration-2 hover:text-rose-300 relative bg-neutral-800 h-16  w-full md:w-96 border text-left p-3 text-gray-50 text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-violet-500 before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-rose-300 after:right-8 after:top-3 after:rounded-full after:blur-lg">
-							LinkedIn
-						</motion.a>
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+					{/* Email Button */}
+					<motion.button
+						variants={buttonVariants}
+						whileHover="hover"
+						whileTap="tap"
+						onClick={handleCopy}
+						className="flex items-center justify-center gap-2 p-4 rounded-lg bg-gray-800/40 backdrop-blur-sm border border-gray-700/30 hover:border-cyan-400/30 transition-all">
+						<FiMail className="text-lg text-cyan-400" />
+						<span className="text-gray-300 font-normal">Copy Email</span>
+					</motion.button>
 
-						<motion.a
-							href="https://github.com/neutrino225/"
-							target="_blank"
-							className="flex flex-row justify-start items-center group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-rose-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4  origin-left hover:decoration-2 hover:text-rose-300 relative bg-neutral-800 h-16  w-full md:w-96 border text-left p-3 text-gray-50 text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-violet-500 before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-rose-300 after:right-8 after:top-3 after:rounded-full after:blur-lg">
-							Github
-						</motion.a>
-					</div>
+					{/* LinkedIn Button */}
+					<motion.a
+						variants={buttonVariants}
+						whileHover="hover"
+						whileTap="tap"
+						href="https://www.linkedin.com/in/faizan-karamat/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center justify-center gap-2 p-4 rounded-lg bg-gray-800/40 backdrop-blur-sm border border-gray-700/30 hover:border-cyan-400/30 transition-all">
+						<FiLinkedin className="text-lg text-cyan-400" />
+						<span className="text-gray-300 font-normal">LinkedIn</span>
+					</motion.a>
+
+					{/* GitHub Button */}
+					<motion.a
+						variants={buttonVariants}
+						whileHover="hover"
+						whileTap="tap"
+						href="https://github.com/neutrino225/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center justify-center gap-2 p-4 rounded-lg bg-gray-800/40 backdrop-blur-sm border border-gray-700/30 hover:border-cyan-400/30 transition-all">
+						<FiGithub className="text-lg text-cyan-400" />
+						<span className="text-gray-300 font-normal">GitHub</span>
+					</motion.a>
 				</div>
-			</div>
+			</motion.div>
 
 			<AnimatePresence>
 				{copied && (
 					<motion.div
-						className="fixed top-5 right-5 bg-card text-green-500 text-base font-semibold rounded-full py-4 px-7 shadow-lg"
-						initial={{ opacity: 0, x: 100 }}
-						animate={{ opacity: 1, x: 0 }}
-						exit={{ opacity: 0, x: 100 }}>
-						Email copied! 🎉
+						className="fixed bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 bg-gray-800/80 backdrop-blur-sm text-green-400 px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg"
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: 20 }}>
+						<FiCopy className="text-base" />
+						<span className="font-normal">Email copied to clipboard!</span>
 					</motion.div>
 				)}
 			</AnimatePresence>
