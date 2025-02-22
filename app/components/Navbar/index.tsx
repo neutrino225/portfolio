@@ -26,7 +26,7 @@ const Navbar = () => {
 			className={`fixed top-0 w-full z-50 transition-all duration-300 ${
 				isScrolled ? "bg-gray-900/20 backdrop-blur-lg" : "bg-transparent"
 			}`}>
-			<div className="container mx-auto px-8 py-6">
+			<div className="container mx-auto px-4 md:px-8 py-6">
 				<div className="flex justify-center md:justify-center">
 					<ul className="flex flex-wrap justify-center items-center gap-5 md:gap-10">
 						{navItems.map((item, index) => (
