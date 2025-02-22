@@ -88,7 +88,7 @@ const Contact = () => {
 			<AnimatePresence>
 				{copied && (
 					<motion.div
-						className="fixed bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 bg-gray-800/80 backdrop-blur-sm text-green-400 px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg"
+						className="fixed bottom-10 right-8 -translate-x-1/2 bg-gray-800/80 backdrop-blur-sm text-green-400 px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: 20 }}>
