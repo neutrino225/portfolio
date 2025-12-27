@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 html {
-	scroll-padding-top: 5rem;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+	display: none;
 }
 
 body {
 	background-color: #0b0b0b;
 	color: #fff;
-	scroll-behavior: smooth;
 }
 
 body {
@@ -114,4 +118,28 @@ h4 {
 	filter: blur(120px);
 	opacity: 0.2;
 	z-index: -1;
+}
+
+.custom-scrollbar {
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: #605f65 #1f1f1f;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+	width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: #1f1f1f;
+	border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background: #605f65;
+	border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #888;
 }
