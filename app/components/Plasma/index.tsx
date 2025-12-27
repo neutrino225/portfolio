@@ -197,11 +197,12 @@ export const Plasma: React.FC<PlasmaProps> = ({
       const container = containerRef.current;
       cancelAnimationFrame(raf);
       ro.disconnect();
-      if (mouseInteractive && container) {
-        container.removeEventListener('mousemove', handleMouseMove);
+      const currentContainer = containerRef.current;
+      if (mouseInteractive && currentContainer) {
+        currentContainer.removeEventListener('mousemove', handleMouseMove);
       }
       try {
-        container?.removeChild(canvas);
+        currentContainer?.removeChild(canvas);
       } catch {}
     };
   }, [color, speed, direction, scale, opacity, mouseInteractive]);

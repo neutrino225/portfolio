@@ -40,9 +40,9 @@ const About = () => {
 					initial={{ opacity: 0, x: -20 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ delay: 0.5, duration: 0.5 }}
-					onClick={() => navigateTo("landing")}
-					className="absolute top-6 left-6 z-20">
-					<GlassButton size="small" variant="secondary">
+					onClick={() => navigateTo("home")}
+					className="absolute top-8 left-8 z-30">
+					<GlassButton size="small" variant="secondary" className="!bg-black/40 backdrop-blur-xl border border-white/10 hover:border-white/30 !rounded-full">
 						← Back
 					</GlassButton>
 				</motion.button>
@@ -69,27 +69,29 @@ const About = () => {
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.4 }}
-							className="flex flex-col items-center gap-6">
-							<h2 className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-bold">
+							className="flex flex-col items-center gap-8 py-10">
+							<h2 className="text-sm uppercase tracking-[0.3em] text-white/30 font-bold">
 								Resume
 							</h2>
-							<p className="text-gray-400 text-center max-w-md">
+							<p className="text-white/40 text-center max-w-md font-light text-lg">
 								Download my resume to learn more about my experience and
 								qualifications.
 							</p>
 							<GlassButton
 								size="large"
 								variant="primary"
+								className="!bg-white !text-black !rounded-full !px-12 !py-4 font-bold hover:!scale-105 transition-transform"
 								onClick={handleResumeDownload}>
 								Download Resume
 							</GlassButton>
 
 							{showResumeAlert && (
 								<motion.div
-									initial={{ opacity: 0, y: 20 }}
-									animate={{ opacity: 1, y: 0 }}
-									exit={{ opacity: 0, y: -20 }}
-									className="mt-4 px-6 py-3 bg-cyan-500/20 border border-cyan-400/30 rounded-lg text-cyan-300">
+									initial={{ opacity: 0, y: 20, scale: 0.95 }}
+									animate={{ opacity: 1, y: 0, scale: 1 }}
+									exit={{ opacity: 0, y: 20, scale: 0.95 }}
+									className="fixed bottom-10 left-1/2 -translate-x-1/2 px-8 py-4 bg-white text-black rounded-full font-bold shadow-[0_0_40px_rgba(255,255,255,0.2)] z-50 flex items-center gap-3">
+									<div className="w-2 h-2 bg-black rounded-full animate-pulse" />
 									Resume coming soon!
 								</motion.div>
 							)}

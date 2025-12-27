@@ -235,7 +235,7 @@ const Skills = () => {
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5 }}
 					viewport={{ once: true }}
-					className="text-base md:text-lg uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-bold text-center tracking-wider">
+					className="text-base md:text-lg uppercase text-white/30 font-bold text-center tracking-widest mb-12">
 					[ Tools & Technologies ]
 				</motion.h1>
 
@@ -244,30 +244,31 @@ const Skills = () => {
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true, margin: "-100px" }}
-					className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+					className="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{skills.map((category, index) => (
 						<motion.div
 							key={category.category}
 							variants={itemVariants}
-							transition={{ duration: 0.3, delay: index * 0.1 }}
-							className="p-6 rounded-xl bg-gray-800/40 border border-gray-700/30 hover:border-cyan-400/30 transition-all"
+							transition={{ duration: 0.5, delay: index * 0.1 }}
+							className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all duration-500"
 							whileHover={{
-								scale: 1.02,
-								boxShadow: "0 4px 24px rgba(8, 112, 184, 0.1)",
+								y: -5,
+								backgroundColor: "rgba(255, 255, 255, 0.04)",
 							}}>
-							<h3 className="text-xl font-semibold text-cyan-400 mb-4">
+							<h3 className="text-xl font-bold text-white mb-6 tracking-tight">
 								{category.category}
 							</h3>
-							<motion.div className="space-y-4" variants={containerVariants}>
+							<motion.div className="grid grid-cols-1 gap-4" variants={containerVariants}>
 								{category.items.map((skill, skillIndex) => (
 									<motion.div
 										key={skill.name}
 										variants={skillItemVariants}
 										transition={{ delay: skillIndex * 0.05 }}
-										className="flex items-center gap-4 p-3 rounded-lg bg-gray-700/20 hover:bg-gray-700/40 transition-colors"
-										whileHover={{ scale: 1.02 }}>
-										<span className="shrink-0">{skill.icon}</span>
-										<span className="text-gray-200 font-medium">
+										className="flex items-center gap-5 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+										<span className="shrink-0 grayscale opacity-40 group-hover:opacity-100 transition-opacity">
+											{skill.icon}
+										</span>
+										<span className="text-white/60 font-medium tracking-wide">
 											{skill.name}
 										</span>
 									</motion.div>

@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-	title: "Faizan Karamat",
-	description: "Faizan Karamat's personal website",
+	title: "Faizan Karamat | Portfolio",
+	description: "Full Stack Developer & AI/ML Engineer",
 };
 
 export default function RootLayout({
@@ -19,8 +19,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body className={poppins.className}>{children}</body>
+		<html lang="en" className="bg-black">
+			<body className={`${poppins.className} bg-black`}>{children}</body>
 		</html>
 	);
 }

@@ -31,7 +31,7 @@ const Contact = () => {
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
-				className="text-xl md:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+				className="text-sm md:text-base uppercase tracking-[0.3em] text-white/30 font-bold">
 				[ Get In Touch ]
 			</motion.h1>
 
@@ -39,22 +39,22 @@ const Contact = () => {
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
 				viewport={{ once: true }}
-				className="w-full max-w-3xl text-center">
-				<p className="text-gray-400 text-base md:text-lg mb-6 leading-relaxed">
+				className="w-full max-w-4xl text-center">
+				<p className="text-white/40 text-lg md:text-2xl mb-12 leading-relaxed font-light">
 					Whether you have a project idea, need consultation, or just want to
 					connect - I&apos;m always open to new opportunities and conversations.
 				</p>
 
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					{/* Email Button */}
 					<motion.button
 						variants={buttonVariants}
 						whileHover="hover"
 						whileTap="tap"
 						onClick={handleCopy}
-						className="flex items-center justify-center gap-2 p-4 rounded-lg bg-gray-800/40 backdrop-blur-sm border border-gray-700/30 hover:border-cyan-400/30 transition-all">
-						<FiMail className="text-lg text-cyan-400" />
-						<span className="text-gray-300 font-normal">Copy Email</span>
+						className="flex items-center justify-center gap-4 p-6 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/5 hover:border-white/20 transition-all group">
+						<FiMail className="text-xl text-white/20 group-hover:text-white transition-colors" />
+						<span className="text-white/60 font-medium tracking-wide">Copy Email</span>
 					</motion.button>
 
 					{/* LinkedIn Button */}
@@ -65,9 +65,9 @@ const Contact = () => {
 						href="https://www.linkedin.com/in/faizan-karamat/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center justify-center gap-2 p-4 rounded-lg bg-gray-800/40 backdrop-blur-sm border border-gray-700/30 hover:border-cyan-400/30 transition-all">
-						<FiLinkedin className="text-lg text-cyan-400" />
-						<span className="text-gray-300 font-normal">LinkedIn</span>
+						className="flex items-center justify-center gap-4 p-6 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/5 hover:border-white/20 transition-all group">
+						<FiLinkedin className="text-xl text-white/20 group-hover:text-white transition-colors" />
+						<span className="text-white/60 font-medium tracking-wide">LinkedIn</span>
 					</motion.a>
 
 					{/* GitHub Button */}
@@ -78,9 +78,9 @@ const Contact = () => {
 						href="https://github.com/neutrino225/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center justify-center gap-2 p-4 rounded-lg bg-gray-800/40 backdrop-blur-sm border border-gray-700/30 hover:border-cyan-400/30 transition-all">
-						<FiGithub className="text-lg text-cyan-400" />
-						<span className="text-gray-300 font-normal">GitHub</span>
+						className="flex items-center justify-center gap-4 p-6 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/5 hover:border-white/20 transition-all group">
+						<FiGithub className="text-xl text-white/20 group-hover:text-white transition-colors" />
+						<span className="text-white/60 font-medium tracking-wide">GitHub</span>
 					</motion.a>
 				</div>
 			</motion.div>
@@ -88,12 +88,12 @@ const Contact = () => {
 			<AnimatePresence>
 				{copied && (
 					<motion.div
-						className="fixed bottom-10 right-8 -translate-x-1/2 bg-gray-800/80 backdrop-blur-sm text-green-400 px-5 py-2.5 rounded-full flex items-center gap-2 shadow-lg"
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: 20 }}>
-						<FiCopy className="text-base" />
-						<span className="font-normal">Email copied to clipboard!</span>
+						className="fixed bottom-12 right-12 bg-white text-black px-8 py-4 rounded-full flex items-center gap-3 shadow-2xl z-50 font-bold"
+						initial={{ opacity: 0, y: 20, scale: 0.9 }}
+						animate={{ opacity: 1, y: 0, scale: 1 }}
+						exit={{ opacity: 0, y: 20, scale: 0.9 }}>
+						<FiCopy className="text-lg" />
+						<span>Email copied!</span>
 					</motion.div>
 				)}
 			</AnimatePresence>

@@ -47,21 +47,21 @@ const About = () => {
 			{/* Section Title */}
 			<motion.h1
 				variants={textVariants(0)}
-				className="text-base md:text-lg uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 font-bold text-center tracking-wider">
+				className="text-base md:text-lg uppercase text-white/30 font-bold text-center tracking-widest">
 				[ About Me ]
 			</motion.h1>
 
 			{/* Introduction */}
 			<motion.p
 				variants={textVariants(1)}
-				className="text-base md:text-lg leading-relaxed text-slate-300 text-center max-w-3xl mx-auto">
+				className="text-lg md:text-2xl leading-relaxed text-white/60 text-center max-w-4xl mx-auto font-light">
 				I&apos;m Faizan, a self-taught full-stack developer and AI researcher
 				passionate about building intuitive digital experiences and advancing
 				NLP & Generative AI technologies.
 			</motion.p>
 
 			{/* Skills / Highlights */}
-			<div className="grid gap-5 md:grid-cols-2">
+			<div className="grid gap-8 md:grid-cols-2 mt-8">
 				{highlights.map((item, i) => (
 					<motion.div
 						key={i}
@@ -69,19 +69,19 @@ const About = () => {
 						whileHover="hover"
 						initial="hidden"
 						animate="visible"
-						className="group relative p-px rounded-xl overflow-hidden">
-						<div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+						className="group relative p-px rounded-2xl overflow-hidden">
+						<div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
 						<motion.div
 							variants={cardVariants}
-							className="relative h-full p-6 rounded-xl bg-gradient-to-br from-gray-900/80 to-gray-900 backdrop-blur-sm border border-gray-700 hover:border-cyan-400/30 transition-all duration-300">
-							<h3 className="mb-3 text-lg font-semibold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+							className="relative h-full p-8 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/5 group-hover:border-white/20 transition-all duration-500">
+							<h3 className="mb-4 text-xl font-bold text-white tracking-tight">
 								{item.title}
 							</h3>
-							<p className="text-base text-slate-300 leading-6">
+							<p className="text-lg text-white/40 leading-relaxed font-light">
 								{item.description.split(" · ").map((point, index) => (
 									<React.Fragment key={index}>
-										<span className="inline-block mr-2 opacity-80">▹</span>
+										<span className="inline-block mr-3 text-white/20">▹</span>
 										{point}
 										<br />
 									</React.Fragment>

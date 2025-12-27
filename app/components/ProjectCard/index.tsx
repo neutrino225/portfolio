@@ -6,13 +6,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export interface ProjectProps {
-	title: string;
-	description: string;
-	github: string;
-	demo?: string;
-	imagePaths?: string[];
-	techStack?: string[];
-	keyFeatures?: string[];
+  title: string;
+	slug?: string;
+  description: string;
+  github: string;
+  demo?: string;
+  imagePaths?: string[];
+  techStack?: string[];
+  keyFeatures?: string[];
+	onClick?: () => void;
 }
 
 const ProjectCard = ({

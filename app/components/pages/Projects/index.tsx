@@ -128,48 +128,56 @@ const Projects = () => {
 				initial={{ opacity: 0, x: -20 }}
 				animate={{ opacity: 1, x: 0 }}
 				transition={{ delay: 0.5, duration: 0.5 }}
-				onClick={() => navigateTo("landing")}
+				onClick={() => navigateTo("home")}
 				className="absolute top-8 left-8 z-30">
-				<GlassButton size="small" variant="secondary" className="!bg-black/40 backdrop-blur-xl border border-white/10 hover:border-white/30">
+				<GlassButton size="small" variant="secondary" className="!bg-black/40 backdrop-blur-xl border border-white/10 hover:border-white/30 !rounded-full">
 					← Back
 				</GlassButton>
 			</motion.button>
 
-			<div className="h-full w-full flex">
-				<div
-					ref={scrollContainerRef}
-					className="flex-1 overflow-y-auto snap-y snap-mandatory custom-scrollbar-none"
-					style={{ scrollSnapType: "y mandatory" }}>
-					{projects.map((project, index) => (
-						<motion.section
-							key={index}
-							className="h-screen w-full flex items-center justify-center snap-start px-8 md:px-24 py-32">
-							<div className="w-full max-w-6xl h-full flex items-center justify-center">
-								<ProjectSlide
-									project={project}
-									onViewDetails={() => setSelectedProject(project)}
-								/>
-							</div>
-						</motion.section>
-					))}
-				</div>
+			<div
+				ref={scrollContainerRef}
+				className="h-full w-full overflow-y-auto snap-y snap-mandatory custom-scrollbar-none">
+				{projects.map((project, index) => (
+					<motion.section
+						key={index}
+						className="h-screen w-full flex items-center justify-center snap-start px-8 md:px-24 py-20">
+						<div className="w-full max-w-7xl h-full flex items-center justify-center">
+							<ProjectSlide
+								project={project}
+								onClick={() => setSelectedProject(project)}
+							/>
+						</div>
+					</motion.section>
+				))}
+			</div>
 
-				<div className="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-20">
-					<div className="flex flex-col gap-4 bg-white/5 backdrop-blur-3xl p-3 rounded-full border border-white/10">
-						{projects.map((_, index) => (
-							<motion.button
-								key={index}
-								onClick={() => scrollToProject(index)}
-								className={`w-1 transition-all duration-500 rounded-full ${
+			{/* Custom Pagination Indicator */}
+			<div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col items-center gap-8 z-20">
+				<div className="flex flex-col gap-5 bg-white/[0.03] backdrop-blur-3xl p-3 md:p-4 rounded-full border border-white/5 shadow-2xl">
+					{projects.map((_, index) => (
+						<motion.button
+							key={index}
+							onClick={() => scrollToProject(index)}
+							className="relative flex items-center justify-center group"
+							whileHover={{ scale: 1.2 }}
+							whileTap={{ scale: 0.9 }}>
+							<motion.div
+								className={`w-1 transition-all duration-700 rounded-full ${
 									activeProject === index
 										? "bg-white h-12"
-										: "bg-white/20 h-8 hover:bg-white/40"
+										: "bg-white/10 h-4 group-hover:bg-white/30"
 								}`}
-								whileHover={{ scale: 1.5 }}
-								whileTap={{ scale: 0.9 }}
 							/>
-						))}
-					</div>
+							{activeProject === index && (
+								<motion.div
+									layoutId="activeGlow"
+									className="absolute inset-0 bg-white/20 blur-md rounded-full"
+									transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+								/>
+							)}
+						</motion.button>
+					))}
 				</div>
 			</div>
 

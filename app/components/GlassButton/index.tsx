@@ -55,7 +55,7 @@ const GlassButton: React.FC<GlassButtonProps> = ({
 				${variantStyles[variant]}
 				${className}
 			`}>
-			<span className="relative z-10 font-medium text-white">
+			<span className="relative z-10 font-medium text-inherit">
 				{children}
 			</span>
 		</motion.button>
