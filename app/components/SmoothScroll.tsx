@@ -14,6 +14,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
 			wheelMultiplier: 1,
 			touchMultiplier: 2,
 			autoRaf: true,
+			syncTouch: false,
 		});
 
 		function raf(time: number) {

@@ -8,18 +8,23 @@ import GlassButton from "../../GlassButton";
 
 interface ProjectSlideProps {
 	project: ProjectProps;
+	index?: number;
 	onClick: () => void;
 }
 
 const ProjectSlide: React.FC<ProjectSlideProps> = ({
 	project,
+	index,
 	onClick,
 }) => {
+	const isEven = index !== undefined ? index % 2 === 0 : true;
+
 	return (
 		<div className="w-full h-full flex flex-col items-center justify-center p-6 md:p-12 overflow-hidden">
 			<motion.div
-				initial={{ opacity: 0, y: 30 }}
-				animate={{ opacity: 1, y: 0 }}
+				initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+				whileInView={{ opacity: 1, x: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
 				transition={{ duration: 0.8, ease: "easeOut" }}
 				className="w-full max-w-6xl flex flex-col items-center gap-10 md:gap-14">
 				

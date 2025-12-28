@@ -5,19 +5,38 @@
 html,
 body,
 .custom-scrollbar {
-	scrollbar-width: none;
-	-ms-overflow-style: none;
+	scrollbar-width: auto;
+	-ms-overflow-style: auto;
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
 .custom-scrollbar::-webkit-scrollbar {
-	display: none;
+	display: block;
+	width: 10px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+	background: #050505;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+	background: #222;
+	border-radius: 10px;
+	border: 2px solid #050505;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+	background: #333;
 }
 
 body {
 	background-color: #0b0b0b;
 	color: #fff;
+	overflow-x: hidden;
 }
 
 ::selection {
@@ -52,7 +71,40 @@ h4 {
 	filter: blur(100px);
 	z-index: -1;
 	animation: rotate-gradient 40s linear infinite;
-	opacity: 0.4;
+  opacity: 0.4;
+}
+
+.plasma-mesh {
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  filter: blur(80px);
+  animation: plasma-flow 30s ease-in-out infinite alternate;
+  will-change: transform, filter;
+  transform: translateZ(0);
+}
+
+.bg-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3FfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+@keyframes plasma-flow {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate(2%, 3%);
+  }
+  100% {
+    transform: scale(0.9) translate(-1%, -2%);
+  }
 }
 
 @keyframes rotate-gradient {

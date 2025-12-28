@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Plasma from "../../Plasma";
+import GridBackground from "../../GridBackground";
 import GlassButton from "../../GlassButton";
 import { usePageContext } from "../../PageManager";
 import AboutContent from "../../About";
@@ -177,9 +178,7 @@ const Home = () => {
 				<section
 					id="landing"
 					className="relative min-h-screen w-screen flex flex-col items-center justify-center p-10 gap-16 md:gap-24 pt-20 overflow-hidden">
-					<div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-						<Plasma color="#ffffff" speed={0.15} opacity={1.0} scale={1.2} />
-					</div>
+					<GridBackground gridSize={40} gridColor="rgba(255, 255, 255, 0.05)" />
 
 					<motion.div
 						className="w-min flex flex-col justify-start items-start gap-5"
@@ -315,7 +314,7 @@ const Home = () => {
 							<GlassButton
 								size="large"
 								variant="primary"
-								className="!bg-white !text-black !rounded-full !px-12 !py-4 font-bold hover:!scale-105 transition-transform"
+								className="!bg-white/5 !text-white !rounded-full !px-12 !py-4 font-bold hover:!bg-white/10 hover:!scale-105 transition-all !border-white/10"
 								onClick={handleResumeDownload}>
 								Download Resume
 							</GlassButton>
@@ -370,6 +369,7 @@ const Home = () => {
 									className="flex flex-col items-center">
 									<ProjectSlide
 										project={project}
+										index={index}
 										onClick={() => handleProjectClick(project)}
 									/>
 									{index < projectData.length - 1 && (
