@@ -82,7 +82,7 @@ const ProjectSlide: React.FC<ProjectSlideProps> = ({
 						<GlassButton
 							size="large"
 							onClick={onClick}
-							className="!bg-white !text-black !rounded-full !px-16 !py-5 hover:!scale-105 transition-all font-bold tracking-tight shadow-2xl shadow-white/10">
+							className="!bg-white !text-black !rounded-full !px-16 !py-5 hover:!scale-105 transition-all font-bold tracking-tight">
 							Explore Project
 						</GlassButton>
 					</div>

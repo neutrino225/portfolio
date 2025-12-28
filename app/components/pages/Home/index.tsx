@@ -9,6 +9,7 @@ import AboutContent from "../../About";
 import Skills from "../../Skills";
 import Contact from "../../Contact";
 import ProjectSlide from "../Projects/ProjectSlide";
+import Footer from "../../Footer";
 
 type Project = {
 	title: string;
@@ -380,6 +381,7 @@ const Home = () => {
 					</motion.div>
 				</section>
 			</div>
+			<Footer />
 		</div>
 	);
 };
