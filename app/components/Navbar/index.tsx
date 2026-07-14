@@ -1,79 +1,73 @@
 /** @format */
 "use client";
-import React, { useState, useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { usePageContext } from "../PageManager";
 
 const navItems = [
-	{ name: "Home", id: "landing", section: null },
-	{ name: "About", id: "home", section: "about" },
-	{ name: "Projects", id: "home", section: "projects" },
+	{ name: "Home", section: "landing" },
+	{ name: "About", section: "about" },
+	{ name: "Work", section: "projects" },
+	{ name: "Contact", section: "contact" },
 ];
 
 const Navbar = () => {
-	const [activeIndex, setActiveIndex] = useState(0);
+	const [activeSection, setActiveSection] = useState("landing");
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const aboutSection = document.getElementById("about");
-			const projectsSection = document.getElementById("projects");
-			const scrollY = window.scrollY;
+			const current = [...navItems]
+				.reverse()
+				.find(({ section }) => {
+					const element = document.getElementById(section);
+					return element ? window.scrollY >= element.offsetTop - 240 : false;
+				});
 
-			if (projectsSection && scrollY >= projectsSection.offsetTop - 200) {
-				setActiveIndex(2);
-			} else if (aboutSection && scrollY >= aboutSection.offsetTop - 200) {
-				setActiveIndex(1);
-			} else {
-				setActiveIndex(0);
-			}
+			setActiveSection(current?.section ?? "landing");
 		};
 
 		window.addEventListener("scroll", handleScroll);
 		handleScroll();
 
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
+		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	const handleNavClick = (item: typeof navItems[0]) => {
-		if (item.section) {
-			const element = document.getElementById(item.section);
-			if (element) {
-				element.scrollIntoView({ behavior: "smooth" });
-			}
-		} else {
-			window.scrollTo({ top: 0, behavior: "smooth" });
-		}
+	const handleNavClick = (section: string) => {
+		document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
 	};
 
 	return (
-		<div className="fixed top-8 left-1/2 -translate-x-1/2 z-[100] w-auto">
+		<div className="fixed left-1/2 top-3 z-40 w-[calc(100vw-1.5rem)] -translate-x-1/2 sm:w-auto md:top-5">
 			<motion.nav
-				initial={{ y: -20, opacity: 0 }}
+				initial={{ y: -18, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
-				className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full px-2 py-2 flex items-center justify-center shadow-2xl">
-				<ul className="flex items-center gap-1">
-					{navItems.map((item, index) => (
-						<li key={item.name}>
-							<button
-								onClick={() => handleNavClick(item)}
-								className={`px-4 py-2 rounded-full text-sm font-medium transition-all relative ${
-									activeIndex === index
-										? "text-white"
-										: "text-white/40 hover:text-white/70"
-								}`}>
-								{activeIndex === index && (
-									<motion.div
-										layoutId="active-pill"
-										className="absolute inset-0 bg-white/10 rounded-full"
-										transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-									/>
-								)}
-								<span className="relative z-10">{item.name}</span>
-							</button>
-						</li>
-					))}
+				transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+				className="liquid-nav mx-auto flex w-full items-center justify-center rounded-xl px-2 py-1.5 sm:w-auto sm:px-4 md:px-6">
+				<ul className="relative z-10 flex w-full items-center justify-around gap-0 sm:w-auto sm:gap-3 md:gap-6 lg:gap-9">
+					{navItems.map((item) => {
+						const isActive = activeSection === item.section;
+						return (
+							<li key={item.name}>
+								<button
+									type="button"
+									onClick={() => handleNavClick(item.section)}
+									className={`focus-ring relative min-h-11 rounded-full px-3 py-2 text-[10px] font-bold uppercase tracking-[0.1em] transition-colors sm:text-xs ${
+										isActive
+											? "text-cream"
+											: "text-primary/60 hover:text-cream"
+									}`}>
+									{isActive && (
+										<motion.span
+											layoutId="nav-active"
+											className="absolute inset-0 rounded-full bg-primary/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.09)]"
+											transition={{ type: "spring", bounce: 0.18, duration: 0.55 }}
+										/>
+									)}
+									<span className="relative z-10">{item.name}</span>
+								</button>
+							</li>
+						);
+					})}
 				</ul>
 			</motion.nav>
 		</div>

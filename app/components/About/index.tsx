@@ -1,107 +1,92 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-
-const textVariants = (i: number) => ({
-	hidden: { opacity: 0, y: 20 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			delay: i * 0.1,
-			duration: 0.7,
-			ease: [0.25, 0.46, 0.45, 0.94],
-		},
-	},
-});
-
-const cardVariants = {
-	hover: {
-		y: -5,
-		transition: { duration: 0.3, ease: "easeInOut" },
-	},
-};
-
-const highlights = [
+const experience = [
 	{
-		title: "Full-Stack Development",
-		description:
-			"MERN Stack · Next.js · TypeScript · Modern UI/UX · Scalable Architectures",
+		period: "Now",
+		company: "CarbonTeq",
+		role: "Software Engineer",
+		place: "Lahore",
+		detail:
+			"Building production software across product interfaces, backend systems, and practical AI workflows.",
 	},
 	{
-		title: "AI & Generative Technologies",
-		description:
-			"NLP · RAG Systems · Deep Learning · AI Chatbots · Model Optimization",
+		period: "2025",
+		company: "IVY Interactive Solutions",
+		role: "Software Developer",
+		place: "Islamabad",
+		detail:
+			"Worked on automated project planning, real-time analytics for early risk detection, deployments, and technical documentation.",
+	},
+	{
+		period: "2024",
+		company: "CarbonTeq",
+		role: "AI Intern",
+		place: "Lahore",
+		detail:
+			"Built RAG and predictive-analytics work, then automated model delivery through CI/CD.",
+	},
+	{
+		period: "2022",
+		company: "CarbonTeq",
+		role: "Full-stack Development Intern",
+		place: "Lahore",
+		detail:
+			"Developed authenticated REST APIs with JWT and MongoDB, and built a DNS client to work directly with the protocol.",
 	},
 ];
 
-const About = () => {
+function ExperienceTimeline({ compact = false }: { compact?: boolean }) {
 	return (
-		<motion.section
-			initial="hidden"
-			whileInView="visible"
-			viewport={{ once: true }}
-			id="aboutme"
-			className="mx-auto w-full md:w-3/4 flex flex-col gap-8 py-9">
-			{/* Section Title */}
-			<motion.h1
-				variants={textVariants(0)}
-				className="text-base md:text-lg uppercase text-white/30 font-bold text-center tracking-widest">
-				[ About Me ]
-			</motion.h1>
+		<ol className="relative ml-1 border-l border-primary/20" aria-label="Experience timeline">
+			{experience.map((item) => (
+				<li
+					key={`${item.company}-${item.role}`}
+					className={`relative pl-6 last:pb-0 ${compact ? "pb-6" : "pb-7"}`}>
+					<span
+						aria-hidden="true"
+						className="absolute -left-[5px] top-1.5 h-[9px] w-[9px] rounded-full bg-primary shadow-[0_0_0_4px_rgba(222,219,200,0.08)]"
+					/>
+					<div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+						<p className="text-xs font-bold text-primary/58">{item.period}</p>
+						<p className="text-xs text-primary/62">{item.place}</p>
+					</div>
+					<div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+						<h3 className="text-sm font-bold text-cream">{item.role}</h3>
+						<p className="text-sm text-primary/68">{item.company}</p>
+					</div>
+					<p className="mt-2 max-w-2xl text-sm leading-6 text-primary/68">{item.detail}</p>
+				</li>
+			))}
+		</ol>
+	);
+}
 
-			{/* Introduction */}
-			<motion.p
-				variants={textVariants(1)}
-				className="text-lg md:text-2xl leading-relaxed text-white/60 text-center max-w-4xl mx-auto font-light">
-				I&apos;m Faizan, a self-taught full-stack developer and AI researcher
-				passionate about building intuitive digital experiences and advancing
-				NLP & Generative AI technologies.
-			</motion.p>
-
-			{/* Skills / Highlights */}
-			<div className="grid gap-8 md:grid-cols-2 mt-8">
-				{highlights.map((item, i) => (
-					<motion.div
-						key={i}
-						variants={textVariants(i + 2)}
-						whileHover="hover"
-						initial="hidden"
-						animate="visible"
-						className="group relative p-px rounded-2xl overflow-hidden">
-						<div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-						<motion.div
-							variants={cardVariants}
-							className="relative h-full p-8 rounded-2xl bg-white/[0.02] backdrop-blur-md border border-white/5 group-hover:border-white/20 transition-all duration-500">
-							<h3 className="mb-4 text-xl font-bold text-white tracking-tight">
-								{item.title}
-							</h3>
-							<p className="text-lg text-white/40 leading-relaxed font-light">
-								{item.description.split(" · ").map((point, index) => (
-									<React.Fragment key={index}>
-										<span className="inline-block mr-3 text-white/20">▹</span>
-										{point}
-										<br />
-									</React.Fragment>
-								))}
-							</p>
-						</motion.div>
-					</motion.div>
-				))}
+export default function About() {
+	return (
+		<section className="grid gap-10 md:grid-cols-[0.82fr_1.18fr] md:items-start md:gap-16">
+			<div className="md:sticky md:top-28">
+				<p className="section-label">About</p>
+				<h2 className="mt-4 max-w-2xl text-3xl font-normal leading-[1.04] text-cream sm:text-4xl lg:text-5xl">
+					I build things to understand them better.
+				</h2>
+				<p className="mt-5 max-w-xl text-sm leading-7 text-primary/72 sm:text-base">
+					A paper, a confusing workflow, or a protocol I have only met through a
+					library is usually enough to send me into the system. I follow the
+					friction until I can make something useful from it.
+				</p>
 			</div>
 
-			{/* Closing Statement */}
-			<motion.p
-				variants={textVariants(4)}
-				className="text-base md:text-lg leading-relaxed text-slate-400 text-center italic max-w-2xl mx-auto">
-				&quot;When I&apos;m not architecting digital solutions, I&apos;m
-				exploring neural networks or optimizing user experiences through
-				data-driven design principles.&quot;
-			</motion.p>
-		</motion.section>
-	);
-};
+			<div className="hidden md:block" aria-label="Experience">
+				<ExperienceTimeline />
+			</div>
 
-export default About;
+			<details className="group md:hidden">
+				<summary className="focus-ring flex min-h-12 cursor-pointer list-none items-center justify-between border-b border-primary/12 py-3 text-sm font-bold text-cream">
+					Experience
+					<span className="text-lg font-normal text-primary/62 transition-transform group-open:rotate-45">+</span>
+				</summary>
+				<div className="pt-6">
+					<ExperienceTimeline compact />
+				</div>
+			</details>
+		</section>
+	);
+}

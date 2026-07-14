@@ -10,6 +10,14 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			colors: {
+				primary: "#DEDBC8",
+				cream: "#E1E0CC",
+			},
+			fontFamily: {
+				serif: ["var(--font-instrument-serif)", "Georgia", "serif"],
+				sans: ["var(--font-almarai)", "system-ui", "sans-serif"],
+			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
 				"gradient-conic":

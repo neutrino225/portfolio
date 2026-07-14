@@ -2,26 +2,104 @@ export interface Project {
 	title: string;
 	slug: string;
 	description: string;
+	role: string;
+	status: string;
+	projectType: "Product" | "System" | "Study";
 	techStack: string[];
 	keyFeatures: string[];
-	github: string;
+	decisions: string[];
+	proof: string[];
+	reflection: string;
+	github?: string;
 	demo?: string;
 	imagePaths: string[];
+	imageFit?: "cover" | "contain";
 }
 
 export const projects: Project[] = [
 	{
+		title: "Briefly",
+		slug: "briefly",
+		description:
+			"Reading papers was starting to feel like a tax on curiosity. Before I could decide whether a paper deserved an hour, I had to decode the abstract, skim the method, and hunt for the actual finding. I built Briefly to make that first pass faster.",
+		role: "Independent product and engineering",
+		status: "Live product",
+		projectType: "Product",
+		techStack: ["Next.js", "Gemini", "Research UX", "Summarization"],
+		keyFeatures: [
+			"Turns research material into a structured first-pass brief",
+			"Surfaces methods, findings, and useful follow-up questions",
+			"Keeps the workflow focused on deciding what deserves a deeper read",
+		],
+		decisions: [
+			"Designed the output around a researcher's reading decision instead of a generic chat response",
+			"Kept the interface quiet so the paper and its findings remain the focus",
+			"Used a constrained brief format to make different papers easier to compare",
+		],
+		proof: [
+			"Working deployment available to inspect",
+			"Built from a recurring problem in my own paper-reading workflow",
+			"End-to-end product covering interface, prompt flow, and deployment",
+		],
+		reflection:
+			"The useful part is not summarization by itself. It is deciding what information someone needs before they commit to reading deeply. That distinction shaped the product more than the model choice did.",
+		demo: "https://briefly.neutrinolab.dev/",
+		imagePaths: ["/briefly_ss/1.png"],
+	},
+	{
+		title: "CampusHive",
+		slug: "campushive",
+		description:
+			"University information was scattered across portals, handbooks, faculty pages, and files that students only found after asking the right person. For my final-year project, I built CampusHive: a multi-agent university assistant that routes each question to the part of the system equipped to answer it.",
+		role: "System architecture, AI engineering, backend, and product development",
+		status: "University final-year project",
+		projectType: "System",
+		techStack: ["LangGraph", "FastAPI", "RAG", "ChromaDB", "Next.js"],
+		keyFeatures: [
+			"Supervisor graph that routes requests across student, faculty, exam, timetable, degree-advising, and OBE agents",
+			"Grounded university answers using Chroma, BM25, and MMR retrieval",
+			"Role-based authentication, persistent conversations, file uploads, and administrative controls",
+		],
+		decisions: [
+			"Split university tasks into specialized agents instead of forcing one prompt to understand every academic workflow",
+			"Used a supervisor graph with explicit routes and fallbacks so agent selection remained inspectable",
+			"Combined semantic and keyword retrieval because university documents contain both natural-language questions and exact institutional terms",
+		],
+		proof: [
+			"Working multi-agent graph with dedicated student, faculty, exam, timetable, degree-advising, and OBE paths",
+			"End-to-end FastAPI and Next.js system with JWT roles and persistent chat sessions",
+			"Real university documents, faculty data, vector stores, ingestion tools, and automated tests",
+		],
+		reflection:
+			"CampusHive changed how I think about agentic systems. The difficult part was not adding more agents; it was defining clear ownership, routing, retrieval, and fallback behavior so the whole system remained understandable when one path failed.",
+		imagePaths: ["/campushive_ss/interface.png"],
+	},
+	{
 		title: "Pixel Arrays",
 		slug: "pixel-arrays",
 		description:
-			"This is a personal hobby website where I showcase images I've captured. Built with minimal UI philosophy focusing on the imagery itself, the site provides a clean, distraction-free experience for viewing photography.",
+			"I take photos too, and I wanted a small place for them that did not behave like a social feed. Pixel Arrays is intentionally quiet: the interface steps back and lets the photographs carry the page.",
+		role: "Design and full-stack development",
+		status: "Live project",
+		projectType: "Product",
 		techStack: ["Next.js", "Tailwind CSS", "Vercel"],
 		keyFeatures: [
-			"Minimal UI for pure image showcasing",
-			"Optimized image loading with Next.js Image component",
-			"Fully responsive design across all devices",
-			"Fast page loads with static generation",
+			"Minimal image-first browsing",
+			"Responsive gallery layouts",
+			"Optimized and lazy-loaded image delivery",
 		],
+		decisions: [
+			"Removed social mechanics so the work is viewed without counters or feed pressure",
+			"Used restrained typography and navigation to keep attention on the images",
+			"Prioritized responsive image behavior because the photographs are the product",
+		],
+		proof: [
+			"Working deployment and public source available",
+			"Multiple responsive gallery views",
+			"Built around my own photography rather than placeholder content",
+		],
+		reflection:
+			"This project taught me that a good interface can be defined by what it refuses to compete with. The work was mostly subtraction, image behavior, and pacing.",
 		github: "https://github.com/neutrino225/pixelarrays",
 		demo: "https://pixelarrays.vercel.app/",
 		imagePaths: [
@@ -35,15 +113,28 @@ export const projects: Project[] = [
 		title: "BTC Conversa",
 		slug: "btc-conversa",
 		description:
-			"BTC Conversa uses conversational AI to simplify your banking experience. The application provides an intelligent chat interface that helps users understand their transactions, get insights about their spending patterns, and receive personalized financial advice.",
-		techStack: ["React", "Node.js", "Express", "MongoDB"],
+			"I wanted to see what banking would feel like if the interface was a conversation instead of a maze of tables. BTC Conversa explores chat as a way to explain transactions, patterns, and next steps.",
+		role: "Frontend development and backend integration",
+		status: "Completed build",
+		projectType: "Product",
+		techStack: ["Next.js", "Flask", "Rasa", "Tailwind CSS"],
 		keyFeatures: [
-			"Conversational AI-powered banking assistant",
-			"Secure authentication and user management system",
-			"Banking transaction insights and categorization",
-			"Real-time chat with context awareness",
-			"Personalized financial recommendations",
+			"Conversational interface for banking questions",
+			"Responsive product UI built in Next.js",
+			"Integration with an existing Flask and Rasa backend",
 		],
+		decisions: [
+			"Changed Rasa responses from raw HTML to structured JSON for predictable rendering",
+			"Separated conversational state from presentation so the interface could handle response types cleanly",
+			"Designed transaction information for scanning inside a chat flow",
+		],
+		proof: [
+			"Complete frontend and backend integration",
+			"Structured response contract between Rasa and Next.js",
+			"Public source and multi-screen product walkthrough",
+		],
+		reflection:
+			"The important engineering decision was not the chat surface. It was replacing presentation-heavy backend responses with a data contract the frontend could reason about.",
 		github: "https://github.com/neutrino225/BTCConversa.git",
 		imagePaths: [
 			"/btc_conversa_ss/1.png",
@@ -58,15 +149,20 @@ export const projects: Project[] = [
 		title: "Context-Aware PDF Question Answering",
 		slug: "pdf-qa-system",
 		description:
-			"A sophisticated Retrieval-Augmented Generation (RAG) system using LangChain, ChromaDB, and Google's Gemini Flash model. This system enables intelligent Q&A over PDF documents with minimal hallucination and high accuracy in responses.",
+			"PDFs hold useful information, but asking them direct questions is awkward. I built the retrieval path myself so answers could be generated from the document rather than from an unconstrained prompt.",
+		role: "AI engineering",
+		status: "Technical project",
+		projectType: "System",
 		techStack: ["Python", "LangChain", "ChromaDB", "Gemini Flash"],
-		keyFeatures: [
-			"Retrieval-Augmented Generation for better context awareness",
-			"Handles large PDF documents efficiently",
-			"Accurate responses with minimal hallucination",
-			"Vector-based semantic search",
-			"Document chunking and intelligent retrieval",
+		keyFeatures: ["PDF ingestion and chunking", "Vector retrieval", "Context-grounded answers"],
+		decisions: [
+			"Separated ingestion, retrieval, and generation so each stage could be inspected independently",
+			"Used vector search to narrow context before generation",
+			"Kept the answer path tied to retrieved document sections",
 		],
+		proof: ["Public source available", "End-to-end RAG pipeline", "Document-based question answering"],
+		reflection:
+			"Building the retrieval path made the limits clearer: answer quality depends as much on chunking and context selection as it does on the model.",
 		github: "https://github.com/neutrino225/RAG-System",
 		imagePaths: [],
 	},
@@ -74,15 +170,20 @@ export const projects: Project[] = [
 		title: "DNS Client",
 		slug: "dns-client",
 		description:
-			"A powerful command-line application that parses domain names into A (IPv4), AAAA (IPv6), and CNAME records. Built from scratch using Python sockets, this lightweight tool demonstrates deep understanding of the DNS protocol.",
+			"I built this because I did not want DNS to stay a black box. The point was to construct the packets, send them over sockets, and inspect what a resolver is actually doing.",
+		role: "Protocol implementation",
+		status: "Technical study",
+		projectType: "System",
 		techStack: ["Python", "Sockets", "DNS Protocol"],
-		keyFeatures: [
-			"Resolves A, AAAA, and CNAME records accurately",
-			"Lightweight and fast query processing",
-			"Command-line interface for ease of use",
-			"Custom DNS packet construction and parsing",
-			"Caching support for improved performance",
+		keyFeatures: ["Manual packet construction", "A, AAAA, and CNAME lookups", "Raw response parsing"],
+		decisions: [
+			"Constructed DNS queries directly instead of calling a resolver library",
+			"Parsed response bytes into records to understand the wire format",
+			"Kept the command-line surface small so the protocol remained the focus",
 		],
+		proof: ["Public source available", "Socket-level implementation", "Multiple record types supported"],
+		reflection:
+			"The project replaced an API-shaped understanding of DNS with a packet-shaped one. That was the entire reason to build it.",
 		github: "https://github.com/neutrino225/dns-client",
 		imagePaths: [],
 	},
@@ -90,20 +191,24 @@ export const projects: Project[] = [
 		title: "Forth Interpreter",
 		slug: "forth-interpreter",
 		description:
-			"A hobby project where I created an interpreter for a small subset of the Forth programming language. Forth is a stack-based language known for its simplicity and efficiency in embedded systems.",
+			"I wanted to understand interpreters by making one small enough to hold in my head. Forth was a good fit because its stack model is simple but still forces careful thinking about parsing and execution.",
+		role: "Language implementation",
+		status: "Technical study",
+		projectType: "Study",
 		techStack: ["Python", "Interpreters", "Stack-based Languages"],
-		keyFeatures: [
-			"Custom interpreter for a subset of Forth language",
-			"Supports stack-based operations",
-			"Implements basic arithmetic operations",
-			"Supports control flow structures",
-			"Interactive REPL for immediate execution",
+		keyFeatures: ["Stack execution model", "Parser and evaluator", "Interactive REPL"],
+		decisions: [
+			"Used a compact stack model to make execution state visible",
+			"Separated parsing from primitive operations",
+			"Added a REPL so behavior could be explored one operation at a time",
 		],
+		proof: ["Public source available", "Working parser and evaluator", "Interactive execution loop"],
+		reflection:
+			"A deliberately small language was more useful for learning than a larger parser project because every execution step remained understandable.",
 		github: "https://github.com/neutrino225/Forth-Interpreter",
 		imagePaths: [],
 	},
 ];
 
-export const getProjectBySlug = (slug: string): Project | undefined => {
-	return projects.find((project) => project.slug === slug);
-};
+export const getProjectBySlug = (slug: string): Project | undefined =>
+	projects.find((project) => project.slug === slug);
