@@ -12,6 +12,7 @@ import ProjectSlide from "../Projects/ProjectSlide";
 import { projects } from "@/lib/projects";
 
 const ease = [0.16, 1, 0.3, 1] as const;
+const featuredProjectSlugs = ["briefly", "campushive", "pixel-arrays", "ai-enabled-blockchain"] as const;
 
 function WordsPullUp({ text }: { text: string }) {
 	const ref = useRef<HTMLSpanElement>(null);
@@ -36,8 +37,13 @@ function WordsPullUp({ text }: { text: string }) {
 
 export default function Home() {
 	const [resumeNotice, setResumeNotice] = useState(false);
-	const featuredProjects = projects.slice(0, 4);
-	const technicalProjects = projects.slice(4);
+	const featuredProjects = featuredProjectSlugs.flatMap((slug) => {
+		const project = projects.find((candidate) => candidate.slug === slug);
+		return project ? [project] : [];
+	});
+	const technicalProjects = projects.filter(
+		(project) => !featuredProjectSlugs.some((slug) => slug === project.slug),
+	);
 
 	useEffect(() => {
 		if (!resumeNotice) return;

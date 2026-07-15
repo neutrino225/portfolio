@@ -146,6 +146,35 @@ export const projects: Project[] = [
 		],
 	},
 	{
+		title: "AI-Enabled Blockchain",
+		slug: "ai-enabled-blockchain",
+		description:
+			"I wanted to understand what changes when blockchain transactions carry executable ML work instead of only values. I built a Go master-peer network where peers run Python models, validate their outputs, compete on proof of work, and broadcast the winning block.",
+		role: "Distributed systems and protocol implementation",
+		status: "Technical project",
+		projectType: "System",
+		techStack: ["Go", "TCP", "Proof of Work", "Python", "Docker"],
+		keyFeatures: [
+			"Master-peer network that exchanges transactions and blocks over TCP",
+			"ML-backed transactions whose Python outputs are recomputed and validated before mining",
+			"Concurrent, cancellable miners that stop when a valid peer block arrives",
+		],
+		decisions: [
+			"Implemented blocks, SHA-256 hashing, nonce search, and chain validation directly to keep the protocol mechanics visible",
+			"Used Go channels and goroutines to separate incoming transactions, peer blocks, and mining work",
+			"Packaged a master and two connected peers with Docker Compose for repeatable network simulation",
+		],
+		proof: [
+			"Public source with the complete master-peer implementation",
+			"Peer coordination, transaction pooling, output validation, and block propagation",
+			"Dockerized three-node network with linear regression, KNN, and K-means workloads",
+		],
+		reflection:
+			"The useful lesson was not that AI makes a blockchain better. It was seeing where computation, validation, consensus, and cancellation meet when several peers can finish the same work at different times.",
+		github: "https://github.com/neutrino225/golang-ai-blockchain",
+		imagePaths: [],
+	},
+	{
 		title: "Context-Aware PDF Question Answering",
 		slug: "pdf-qa-system",
 		description:
